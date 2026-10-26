@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101116">
+<title>رسالة بلا اسم | من إنشاء علي</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101116;color:#f4eff8;font-family:Arial,sans-serif;overflow-x:hidden}
+header,main,footer{width:min(720px,92%);margin:auto}
+header{padding:24px 0;border-bottom:1px solid #34303e;display:flex;justify-content:space-between;align-items:center}
+.brand{font-size:21px;font-weight:bold;color:#e0c9ff}
+header span{color:#9d96aa;font-size:12px}
+.hero{text-align:center;padding:28px 0 12px}
+h1{font-size:34px;line-height:1.5;margin:0}
+h1 span{color:#c6a9f0}
+.hero p{color:#aaa4b5;line-height:1.9}
+.art{height:190px;width:100%;display:grid;place-items:center;position:relative;overflow:hidden}
+.orbit{position:absolute;width:155px;height:155px;border:1px solid #8e72b455;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none}
+.orbit.two{width:185px;height:185px;border-style:dashed}
+.envelope{width:90px;height:90px;display:grid;place-items:center;background:#211b2b;border:1px solid #9e83c977;border-radius:27px;color:#e0c9ff;font-size:43px}
+.panel{background:#191a23;border:1px solid #353440;border-radius:20px;padding:22px;margin:16px 0 32px}
+h2{font-size:22px;margin:0 0 18px}
+label{display:block;margin:15px 0 7px;color:#e0d9e9;font-size:14px}
+input,textarea,button{font:inherit}
+input,textarea{width:100%;background:#101116;color:white;border:1px solid #3c3949;border-radius:11px;padding:13px;outline:none}
+textarea{resize:vertical;min-height:125px}
+input:focus,textarea:focus{border-color:#c6a9f0}
+button{width:100%;margin-top:17px;padding:14px;border:0;border-radius:11px;background:#d8c3f4;color:#21172b;font-weight:bold;cursor:pointer}
+.note,.status{color:#aaa4b5;font-size:12px;line-height:1.8}
+#messages{display:grid;gap:12px}
+.card{background:#191a23;border:1px solid #353440;border-radius:15px;padding:17px;overflow-wrap:anywhere}
+.card p{white-space:pre-wrap;line-height:1.8}
+.meta{color:#bda8dc;font-size:12px;border-top:1px solid #33303d;padding-top:10px}
+footer{text-align:center;border-top:1px solid #34303e;padding:20px 0 30px;color:#aaa4b5;font-size:12px}
+.signature{color:#d8c3f4;font-weight:bold;font-size:14px}
+</style>
+</head>
+<body>
+<header><div class="brand">✦ رسالة بلا اسم</div><span>مساحة للكلام الذي لم يُقَل</span></header>
+<main>
+<section class="hero">
+<h1>في كلمات<br><span>بتضلّ جوّاتنا.</span></h1>
+<p>اكتب اللي ما قدرت تقوله، واترك رسالتك هون.</p>
+<div class="art"><div class="orbit"></div><div class="orbit two"></div><div class="envelope">✉</div></div>
+</section>
+<section class="panel">
+<h2>اترك رسالتك</h2>
+<form id="form">
+<label for="alias">اسم مستعار (اختياري)</label>
+<input id="alias" maxlength="30" placeholder="مجهول">
+<label for="message">رسالتك</label>
+<textarea id="message" minlength="3" maxlength="1000" required placeholder="اكتب رسالتك هون..."></textarea>
+<label><input id="consent" type="checkbox" required style="width:auto"> بعرف إن رسالتي رح تظهر لكل زوار الموقع.</label>
+<button id="send" type="submit">أرسل رسالتك</button>
+<p id="status" class="status" role="status">يلزم ربط قاعدة بيانات Firebase لتفعيل النشر الحقيقي.</p>
+</form>
+<p class="note">ما تكتب معلومات شخصية أو كلمات سر. الرسائل عامة.</p>
+</section>
+<section>
+<h2>رسائل الناس</h2>
+<div id="messages"><p class="note">سيظهر هنا محتوى الرسائل بعد ربط قاعدة البيانات.</p></div>
+</section>
+</main>
+<footer><p>الكلمات مساحة، مش للأذى.</p><p class="signature">من إنشاء علي | Ali</p></footer>
+<script>
+document.getElementById('form').addEventListener('submit',function(e){
+e.preventDefault();
+document.getElementById('status').textContent='الموقع بحاجة لربط Firebase قبل نشر الرسائل. لم يتم إرسال رسالتك.';
+});
+</script>
+</body>
+</html>
