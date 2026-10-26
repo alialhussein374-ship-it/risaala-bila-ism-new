@@ -2,74 +2,215 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101116">
-<title>رسالة بلا اسم | من إنشاء علي</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:#101116;color:#f4eff8;font-family:Arial,sans-serif;overflow-x:hidden}
-header,main,footer{width:min(720px,92%);margin:auto}
-header{padding:24px 0;border-bottom:1px solid #34303e;display:flex;justify-content:space-between;align-items:center}
-.brand{font-size:21px;font-weight:bold;color:#e0c9ff}
-header span{color:#9d96aa;font-size:12px}
-.hero{text-align:center;padding:28px 0 12px}
-h1{font-size:34px;line-height:1.5;margin:0}
-h1 span{color:#c6a9f0}
-.hero p{color:#aaa4b5;line-height:1.9}
-.art{height:190px;width:100%;display:grid;place-items:center;position:relative;overflow:hidden}
-.orbit{position:absolute;width:155px;height:155px;border:1px solid #8e72b455;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none}
-.orbit.two{width:185px;height:185px;border-style:dashed}
-.envelope{width:90px;height:90px;display:grid;place-items:center;background:#211b2b;border:1px solid #9e83c977;border-radius:27px;color:#e0c9ff;font-size:43px}
-.panel{background:#191a23;border:1px solid #353440;border-radius:20px;padding:22px;margin:16px 0 32px}
-h2{font-size:22px;margin:0 0 18px}
-label{display:block;margin:15px 0 7px;color:#e0d9e9;font-size:14px}
-input,textarea,button{font:inherit}
-input,textarea{width:100%;background:#101116;color:white;border:1px solid #3c3949;border-radius:11px;padding:13px;outline:none}
-textarea{resize:vertical;min-height:125px}
-input:focus,textarea:focus{border-color:#c6a9f0}
-button{width:100%;margin-top:17px;padding:14px;border:0;border-radius:11px;background:#d8c3f4;color:#21172b;font-weight:bold;cursor:pointer}
-.note,.status{color:#aaa4b5;font-size:12px;line-height:1.8}
-#messages{display:grid;gap:12px}
-.card{background:#191a23;border:1px solid #353440;border-radius:15px;padding:17px;overflow-wrap:anywhere}
-.card p{white-space:pre-wrap;line-height:1.8}
-.meta{color:#bda8dc;font-size:12px;border-top:1px solid #33303d;padding-top:10px}
-footer{text-align:center;border-top:1px solid #34303e;padding:20px 0 30px;color:#aaa4b5;font-size:12px}
-.signature{color:#d8c3f4;font-weight:bold;font-size:14px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b12">
+  <title>رسالة بلا اسم</title>
+  <style>
+    *{box-sizing:border-box}
+    body{
+      margin:0;min-height:100vh;background:#0b0b12;color:#eeeaf5;
+      font-family:Arial,sans-serif;padding:24px 15px;
+    }
+    main{max-width:620px;margin:auto}
+    header{text-align:center;padding:28px 10px}
+    .symbol{font-size:64px;line-height:1.5}
+    h1{font-size:30px;margin:8px 0;color:#e0c7ff}
+    .sub{color:#aaa3b7;line-height:1.9}
+    section{
+      background:#15141f;border:1px solid #30283e;border-radius:18px;
+      padding:20px;margin:16px 0;
+    }
+    label{display:block;margin:14px 0 8px}
+    input,textarea{
+      width:100%;background:#0d0c14;color:#fff;border:1px solid #40364f;
+      border-radius:10px;padding:13px;font:inherit;outline:none;
+    }
+    textarea{min-height:130px;resize:vertical}
+    input:focus,textarea:focus{border-color:#b998e8}
+    button{
+      width:100%;margin-top:15px;padding:14px;border:0;border-radius:10px;
+      background:#b998e8;color:#160e20;font:inherit;font-weight:bold;
+      cursor:pointer;
+    }
+    button:disabled{opacity:.55;cursor:wait}
+    .notice{font-size:13px;color:#aaa3b7;line-height:1.8}
+    .status{line-height:1.8;margin-top:12px}
+    .message{
+      white-space:pre-wrap;overflow-wrap:anywhere;background:#0f0e17;
+      border:1px solid #30283e;border-radius:12px;padding:15px;margin:12px 0;
+    }
+    .alias{font-size:13px;color:#c9a9f2;margin-bottom:8px}
+    footer{text-align:center;color:#8d859b;font-size:13px;padding:24px}
+    .hidden{display:none}
+  </style>
 </head>
 <body>
-<header><div class="brand">✦ رسالة بلا اسم</div><span>مساحة للكلام الذي لم يُقَل</span></header>
 <main>
-<section class="hero">
-<h1>في كلمات<br><span>بتضلّ جوّاتنا.</span></h1>
-<p>اكتب اللي ما قدرت تقوله، واترك رسالتك هون.</p>
-<div class="art"><div class="orbit"></div><div class="orbit two"></div><div class="envelope">✉</div></div>
-</section>
-<section class="panel">
-<h2>اترك رسالتك</h2>
-<form id="form">
-<label for="alias">اسم مستعار (اختياري)</label>
-<input id="alias" maxlength="30" placeholder="مجهول">
-<label for="message">رسالتك</label>
-<textarea id="message" minlength="3" maxlength="1000" required placeholder="اكتب رسالتك هون..."></textarea>
-<label><input id="consent" type="checkbox" required style="width:auto"> بعرف إن رسالتي رح تظهر لكل زوار الموقع.</label>
-<button id="send" type="submit">أرسل رسالتك</button>
-<p id="status" class="status" role="status">يلزم ربط قاعدة بيانات Firebase لتفعيل النشر الحقيقي.</p>
-</form>
-<p class="note">ما تكتب معلومات شخصية أو كلمات سر. الرسائل عامة.</p>
-</section>
-<section>
-<h2>رسائل الناس</h2>
-<div id="messages"><p class="note">سيظهر هنا محتوى الرسائل بعد ربط قاعدة البيانات.</p></div>
-</section>
+  <header>
+    <div class="symbol" aria-hidden="true">✉</div>
+    <h1>رسالة بلا اسم</h1>
+    <p class="sub">في كلمات ما منقدر نقولها بصوت عالي...<br>اكتب رسالتك واتركها هون.</p>
+  </header>
+
+  <section>
+    <form id="messageForm">
+      <label for="alias">اسم مستعار (اختياري)</label>
+      <input id="alias" maxlength="40" placeholder="شو بتحب يظهر اسمك؟">
+
+      <label for="message">رسالتك</label>
+      <textarea id="message" maxlength="1000" required
+        placeholder="اكتب رسالتك هون..."></textarea>
+
+      <p class="notice">
+        الرسائل المقبولة بتظهر للزوار. لا تكتب معلوماتك الشخصية أو رقم هاتفك.
+        فلترة الكلمات المسيئة بسيطة وليست مضمونة بالكامل.
+      </p>
+      <button id="sendButton" type="submit">إرسال الرسالة</button>
+      <div id="status" class="status" role="status"></div>
+    </form>
+  </section>
+
+  <section>
+    <h2>الرسائل المنشورة</h2>
+    <p class="notice">الرسائل الجديدة بتظهر هون لما تكون قاعدة البيانات متصلة.</p>
+    <div id="messages"><p class="sub">عم نجهّز الرسائل...</p></div>
+  </section>
+
+  <footer>من إنشاء علي | Ali</footer>
 </main>
-<footer><p>الكلمات مساحة، مش للأذى.</p><p class="signature">من إنشاء علي | Ali</p></footer>
-<script>
-document.getElementById('form').addEventListener('submit',function(e){
-e.preventDefault();
-document.getElementById('status').textContent='الموقع بحاجة لربط Firebase قبل نشر الرسائل. لم يتم إرسال رسالتك.';
-});
+
+<script type="module">
+  import { firebaseConfig } from "./firebase-config.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+  import {
+    getFirestore, collection, addDoc, onSnapshot,
+    query, where, orderBy, limit, serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+  const status = document.getElementById("status");
+  const form = document.getElementById("messageForm");
+  const messageInput = document.getElementById("message");
+  const aliasInput = document.getElementById("alias");
+  const sendButton = document.getElementById("sendButton");
+  const messagesBox = document.getElementById("messages");
+
+  // فلترة أولية فقط؛ لا تغني عن مراجعة الرسائل أو الحماية من الإساءة.
+  const blockedWords = [
+    "كس ام", "كسم", "شرموط", "شرموطة", "متناك", "منيوك",
+    "يا حيوان", "يا كلب"
+  ];
+
+  function normalize(text) {
+    return text.toLowerCase()
+      .replace(/[أإآ]/g, "ا")
+      .replace(/ة/g, "ه")
+      .replace(/[ًٌٍَُِّْـ]/g, "")
+      .replace(/[.,!?،؛:]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function hasBlockedWords(text) {
+    const cleaned = normalize(text);
+    return blockedWords.some(word => cleaned.includes(normalize(word)));
+  }
+
+  try {
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const messagesQuery = query(
+      collection(db, "messages"),
+      where("status", "==", "approved"),
+      orderBy("createdAt", "desc"),
+      limit(50)
+    );
+
+    onSnapshot(messagesQuery, snapshot => {
+      messagesBox.replaceChildren();
+
+      if (snapshot.empty) {
+        const empty = document.createElement("p");
+        empty.className = "sub";
+        empty.textContent = "ما في رسائل منشورة بعد. كن أول شخص يكتب رسالة.";
+        messagesBox.appendChild(empty);
+        return;
+      }
+
+      snapshot.forEach(item => {
+        const data = item.data();
+        const card = document.createElement("article");
+        card.className = "message";
+
+        const alias = document.createElement("div");
+        alias.className = "alias";
+        alias.textContent = data.alias || "مجهول";
+
+        const text = document.createElement("div");
+        text.textContent = data.text || "";
+
+        card.append(alias, text);
+        messagesBox.appendChild(card);
+      });
+    }, error => {
+      messagesBox.textContent =
+        "تعذّر تحميل الرسائل. تأكد من إعدادات Firebase وقواعد البيانات.";
+      console.error(error);
+    });
+
+    form.addEventListener("submit", async event => {
+      event.preventDefault();
+
+      const text = messageInput.value.trim();
+      const alias = aliasInput.value.trim();
+
+      if (!text) {
+        status.textContent = "اكتب الرسالة أولاً.";
+        return;
+      }
+
+      if (text.length > 1000 || alias.length > 40) {
+        status.textContent = "الرسالة أو الاسم أطول من المسموح.";
+        return;
+      }
+
+      if (hasBlockedWords(text) || hasBlockedWords(alias)) {
+        status.textContent = "الرسالة فيها كلمات غير مسموح فيها. عدّلها وجرب مرة تانية.";
+        return;
+      }
+
+      if (/https?:\/\/|www\./i.test(text)) {
+        status.textContent = "الروابط غير مسموحة بالرسائل.";
+        return;
+      }
+
+      sendButton.disabled = true;
+      status.textContent = "عم نرسل رسالتك...";
+
+      try {
+        await addDoc(collection(db, "messages"), {
+          text,
+          alias,
+          status: "approved",
+          createdAt: serverTimestamp()
+        });
+
+        form.reset();
+        status.textContent = "وصلت رسالتك واننشرت بنجاح.";
+      } catch (error) {
+        console.error(error);
+        status.textContent =
+          "ما قدرنا نرسل الرسالة. تأكد من إعدادات Firebase وقواعد البيانات.";
+      } finally {
+        sendButton.disabled = false;
+      }
+    });
+  } catch (error) {
+    console.error(error);
+    status.textContent = "تعذّر تشغيل Firebase. تأكد من ملف الإعدادات.";
+    messagesBox.textContent = "قاعدة البيانات غير متصلة حالياً.";
+  }
 </script>
 </body>
 </html>
